@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://b6s2ahjqn5ag7"]
+
+<<<<<<< HEAD:Alex_dating_app.tscn
+[ext_resource type="Script" path="res://test_dating_app_scene.gd" id="1_4ygki"]
+[ext_resource type="Texture2D" uid="uid://dxe1pttp6pba5" path="res://dating_app_alex.png" id="2_efkbo"]
+[ext_resource type="PackedScene" uid="uid://dxukphd7p3mnj" path="res://character.tscn" id="3_it1iu"]
+[ext_resource type="Script" path="res://NewLeftBarrier.gd" id="4_ebyg7"]
+[ext_resource type="Script" path="res://RightBarrier.gd" id="5_3cscg"]
+=======
+[ext_resource type="Script" path="res://test_dating_app_scene.gd" id="1_vuqrl"]
+[ext_resource type="Texture2D" uid="uid://crupj5knys1em" path="res://dating_app_not_real.png" id="1_xrp6r"]
+[ext_resource type="PackedScene" uid="uid://dxukphd7p3mnj" path="res://character.tscn" id="2_bjtcp"]
+>>>>>>> 1f0b043ab6d72aa5df881eec59dd2a604dcba9ea:test_dating_app_scene.tscn
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn5oc"]
+size = Vector2(324, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b72vv"]
+size = Vector2(164.5, 411.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6lka"]
+size = Vector2(207, 407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwy3r"]
+size = Vector2(210, 409)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie75b"]
+size = Vector2(160, 431)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfkl7"]
+size = Vector2(271, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qxl8"]
+size = Vector2(42, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2ef7"]
+size = Vector2(20, 138)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_4ygki")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 287.0
+offset_top = -2.0
+offset_right = 910.0
+offset_bottom = 646.0
+texture = ExtResource("2_efkbo")
+stretch_mode = 5
+
+[node name="Character" parent="." groups=["CharacterGroup"] instance=ExtResource("3_it1iu")]
+position = Vector2(589, 639)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(790, 572)
+shape = SubResource("RectangleShape2D_bn5oc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(370.75, 205.75)
+shape = SubResource("RectangleShape2D_b72vv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(558.5, 198.5)
+shape = SubResource("RectangleShape2D_b6lka")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(768, 191.5)
+shape = SubResource("RectangleShape2D_cwy3r")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960, 192)
+shape = SubResource("RectangleShape2D_ie75b")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(409.5, 566)
+shape = SubResource("RectangleShape2D_hfkl7")
+
+[node name="NewLeftBarrier" type="Area2D" parent="."]
+script = ExtResource("4_ebyg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewLeftBarrier"]
+position = Vector2(289, 441)
+shape = SubResource("RectangleShape2D_2qxl8")
+
+[node name="RightBarrier" type="Area2D" parent="."]
+script = ExtResource("5_3cscg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBarrier"]
+position = Vector2(909, 432)
+shape = SubResource("RectangleShape2D_p2ef7")
+
+[connection signal="body_entered" from="NewLeftBarrier" to="." method="_on_new_left_barrier_body_entered"]
+[connection signal="body_entered" from="RightBarrier" to="RightBarrier" method="_on_body_entered"]

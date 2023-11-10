@@ -1,0 +1,143 @@
+<<<<<<< HEAD
+[gd_scene load_steps=15 format=3 uid="uid://ciwxrt50gnx3n"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=9 format=3 uid="uid://bl03kwt0stq5w"]
+=======
+[gd_scene load_steps=19 format=3 uid="uid://ciwxrt50gnx3n"]
+>>>>>>> 1f0b043ab6d72aa5df881eec59dd2a604dcba9ea
+>>>>>>> 713fa85e56a1248b8b2e7d7af170e6b7f7a4469a
+
+[ext_resource type="Texture2D" uid="uid://d2urtxfc205v5" path="res://cafe-wiithout-alex.png" id="1_1p3ar"]
+[ext_resource type="Texture2D" uid="uid://do5e1y8cpen1f" path="res://playerdialogue.png" id="2_rel0i"]
+[ext_resource type="Script" path="res://Playerdialogue.gd" id="3_2ksmj"]
+[ext_resource type="Texture2D" uid="uid://bduq35w3p0nda" path="res://Alexneutral.png" id="3_el453"]
+[ext_resource type="Texture2D" uid="uid://baxn3g3smtvtc" path="res://Alexevil.png" id="3_v3tob"]
+[ext_resource type="Texture2D" uid="uid://doubho0qan3fh" path="res://Alexnormal.png" id="4_1rikv"]
+[ext_resource type="Texture2D" uid="uid://bcup3xtm3h2fw" path="res://Alexsad.png" id="4_wu61f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wec3"]
+atlas = ExtResource("1_1p3ar")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bt7h"]
+atlas = ExtResource("1_1p3ar")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwh7g"]
+atlas = ExtResource("1_1p3ar")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c1jk"]
+atlas = ExtResource("1_1p3ar")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2qgb"]
+atlas = ExtResource("1_1p3ar")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyywq"]
+atlas = ExtResource("1_1p3ar")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sk1yj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wec3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bt7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwh7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c1jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2qgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyywq")
+}],
+"loop": true,
+"name": &"default_withoutalex",
+"speed": 1.0
+}]
+
+[node name="Cafe" type="Node2D"]
+
+[node name="without_alex" type="AnimatedSprite2D" parent="."]
+position = Vector2(570, 322)
+scale = Vector2(6.54, 6.48)
+sprite_frames = SubResource("SpriteFrames_sk1yj")
+animation = &"default_withoutalex"
+autoplay = "default_withoutalex"
+frame = 5
+frame_progress = 0.288642
+
+[node name="Playerdialogue" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(583, 285)
+scale = Vector2(6.5325, 6.975)
+texture = ExtResource("2_rel0i")
+script = ExtResource("3_2ksmj")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Alexneutral" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(164, 308)
+texture = ExtResource("3_el453")
+
+[node name="Alexsad" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(219, 437)
+texture = ExtResource("4_wu61f")
+
+[node name="Alexevil" type="Sprite2D" parent="Control"]
+position = Vector2(634, 357.297)
+scale = Vector2(7.282, 7.772)
+texture = ExtResource("3_v3tob")
+
+[node name="Alexnormal" type="Sprite2D" parent="Control"]
+position = Vector2(634, 357.297)
+scale = Vector2(7.02942, 7.77197)
+texture = ExtResource("4_1rikv")
+
+[node name="Timer" type="Timer" parent="Control/Alexnormal"]
+wait_time = 0.439
+one_shot = true
+
+[node name="dialog box" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 298.0
+offset_top = 451.0
+offset_right = 910.0
+offset_bottom = 625.0
+color = Color(0.0431373, 0.054902, 0.0117647, 1)
+
+[node name="Name" type="RichTextLabel" parent="Control/dialog box"]
+visible = false
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 317.0
+offset_bottom = 166.0
+text = "Name goes here"
+
+[node name="Text" type="RichTextLabel" parent="Control/dialog box"]
+visible = false
+layout_mode = 0
+offset_left = 31.0
+offset_top = 47.0
+offset_right = 249.0
+offset_bottom = 112.0
+text = "Words go hear"

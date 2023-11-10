@@ -1,0 +1,107 @@
+[gd_scene load_steps=16 format=3 uid="uid://bnq7yvgrwuxaj"]
+
+[ext_resource type="Script" path="res://RPG_Bedroom.gd" id="1_qnyuw"]
+[ext_resource type="Texture2D" uid="uid://b1vbxb0e8gpk1" path="res://RPG Players Bedroom.png" id="1_t4uvd"]
+[ext_resource type="PackedScene" uid="uid://dxukphd7p3mnj" path="res://character.tscn" id="2_sifoe"]
+<<<<<<< HEAD
+=======
+[ext_resource type="PackedScene" uid="uid://bn3h47r5l5hxw" path="res://Interaction/Interaction Area/interaction_area.tscn" id="4_cbbsd"]
+>>>>>>> 1f0b043ab6d72aa5df881eec59dd2a604dcba9ea
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o48l"]
+size = Vector2(30, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mbnx"]
+size = Vector2(37, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeh4r"]
+size = Vector2(611.5, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3326"]
+size = Vector2(647, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b15w3"]
+size = Vector2(49, 523)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq8kq"]
+size = Vector2(58, 336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fcs8"]
+size = Vector2(96, 245)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh6we"]
+size = Vector2(124.5, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gaeh"]
+size = Vector2(24.75, 143.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vcee"]
+size = Vector2(106, 136)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0eyy3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qnyuw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 235.0
+offset_right = 883.0
+offset_bottom = 648.0
+texture = ExtResource("1_t4uvd")
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Wall 1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(244, 150)
+shape = SubResource("RectangleShape2D_0o48l")
+
+[node name="Wall 2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248.5, 545)
+shape = SubResource("RectangleShape2D_8mbnx")
+
+[node name="Wall 3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(579.25, 639)
+shape = SubResource("RectangleShape2D_xeh4r")
+
+[node name="Wall 4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(563.5, 58.5)
+shape = SubResource("RectangleShape2D_q3326")
+
+[node name="Wall 5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(863.5, 372.5)
+shape = SubResource("RectangleShape2D_b15w3")
+
+[node name="Wall 6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(203, 378)
+shape = SubResource("RectangleShape2D_vq8kq")
+
+[node name="Table" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(802, 519.5)
+shape = SubResource("RectangleShape2D_8fcs8")
+
+[node name="Chair" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(684, 515)
+shape = SubResource("RectangleShape2D_qh6we")
+
+[node name="Chair Backing" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(639.375, 480.75)
+shape = SubResource("RectangleShape2D_4gaeh")
+
+[node name="Plant" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(325, 552)
+shape = SubResource("RectangleShape2D_1vcee")
+
+[node name="Character" parent="." groups=["player"] instance=ExtResource("2_sifoe")]
+position = Vector2(501, 539)
+scale = Vector2(2, 2)
+collision_layer = 2
+
+[node name="interaction_area" parent="." instance=ExtResource("4_cbbsd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
+position = Vector2(780, 396)
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_0eyy3")
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]

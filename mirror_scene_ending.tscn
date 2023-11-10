@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://be6eruwhjv66p"]
+
+[ext_resource type="Texture2D" uid="uid://cph646ne6mqpg" path="res://Mirror Scene.png" id="1_h5ce5"]
+[ext_resource type="Script" path="res://Mirror Scene.gd" id="2_7xehw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Mirror Scenel Background" type="TextureRect" parent="."]
+offset_left = 256.0
+offset_right = 904.0
+offset_bottom = 648.0
+texture = ExtResource("1_h5ce5")
+script = ExtResource("2_7xehw")

@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://5vlkfdl80mtp"]
+
+[ext_resource type="Script" path="res://alexnormal.gd" id="1_ehph1"]
+[ext_resource type="Texture2D" uid="uid://doubho0qan3fh" path="res://Alexnormal.png" id="1_iykns"]
+[ext_resource type="Texture2D" uid="uid://d2urtxfc205v5" path="res://cafe-wiithout-alex.png" id="1_o0jws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yx5t"]
+atlas = ExtResource("1_o0jws")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isjoa"]
+atlas = ExtResource("1_o0jws")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfx6a"]
+atlas = ExtResource("1_o0jws")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w1ne"]
+atlas = ExtResource("1_o0jws")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6f30"]
+atlas = ExtResource("1_o0jws")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf8ed"]
+atlas = ExtResource("1_o0jws")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vw6jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yx5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isjoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfx6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w1ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6f30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf8ed")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ehph1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(570, 322)
+scale = Vector2(6.48, 6.48)
+sprite_frames = SubResource("SpriteFrames_vw6jp")
+autoplay = "default"
+
+[node name="Alexnormal" type="Sprite2D" parent="."]
+position = Vector2(634, 357.297)
+scale = Vector2(7.772, 7.772)
+texture = ExtResource("1_iykns")

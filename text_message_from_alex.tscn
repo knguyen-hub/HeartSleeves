@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://dodsiuicl8iwl"]
+
+[ext_resource type="Texture2D" uid="uid://drfji1dnrs76f" path="res://Text Message Bubble.png" id="1_d8cfs"]
+[ext_resource type="Script" path="res://text_message_from_alex.gd" id="1_pfcs2"]
+[ext_resource type="FontFile" uid="uid://civrxqk753s1i" path="res://Born2bSportyV2.ttf" id="2_k7jpv"]
+[ext_resource type="Script" path="res://TextboxContainer.gd" id="2_uevsl"]
+[ext_resource type="Texture2D" uid="uid://crupj5knys1em" path="res://dating_app_not_real.png" id="3_p3l3p"]
+
+[node name="TextMessage" type="CanvasLayer"]
+script = ExtResource("1_pfcs2")
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+offset_left = 324.0
+offset_top = 222.0
+offset_right = 810.0
+offset_bottom = 361.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_uevsl")
+
+[node name="TextBubble" type="TextureRect" parent="TextboxContainer"]
+layout_mode = 2
+texture = ExtResource("1_d8cfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 33
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 35
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="StartSymbol" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k7jpv")
+theme_override_font_sizes/font_size = 45
+text = "* "
+vertical_alignment = 1
+
+[node name="TextMessage" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_k7jpv")
+theme_override_font_sizes/font_size = 42
+text = "Let’s go on a date. "
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Background (Delete Later)" type="TextureRect" parent="."]
+visible = false
+offset_left = 250.0
+offset_right = 898.0
+offset_bottom = 648.0
+texture = ExtResource("3_p3l3p")

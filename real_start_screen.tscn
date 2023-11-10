@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b21o8gfckgcvt"]
+
+[ext_resource type="Texture2D" uid="uid://dfxh7pl2k5gd" path="res://Heart Sleeves Start Screen.png" id="1_issj3"]
+[ext_resource type="Texture2D" uid="uid://deqfesn16vjjo" path="res://Start Button.png" id="2_s7bwn"]
+[ext_resource type="Script" path="res://start_screen.gd" id="3_e85qd"]
+[ext_resource type="Texture2D" uid="uid://cakgvquwva27p" path="res://Quit Button.png" id="4_4r4hg"]
+
+[node name="Real Start Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_right = 880.0
+offset_bottom = 648.0
+texture = ExtResource("1_issj3")
+
+[node name="Start Button" type="TextureButton" parent="Background"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 266.0
+offset_right = 447.0
+offset_bottom = 337.0
+texture_normal = ExtResource("2_s7bwn")
+stretch_mode = 0
+script = ExtResource("3_e85qd")
+
+[node name="Quit Button" type="TextureButton" parent="Background"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 344.0
+offset_right = 447.0
+offset_bottom = 414.0
+texture_normal = ExtResource("4_4r4hg")
+stretch_mode = 0
+
+[connection signal="pressed" from="Background/Start Button" to="Background/Start Button" method="_on_pressed"]

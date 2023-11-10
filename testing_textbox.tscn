@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bisusjpldqj5u"]
+
+[ext_resource type="Script" path="res://TestingTextBox.gd" id="1_fgtc6"]
+[ext_resource type="Texture2D" uid="uid://do5e1y8cpen1f" path="res://playerdialogue.png" id="2_yph52"]
+[ext_resource type="FontFile" uid="uid://civrxqk753s1i" path="res://Born2bSportyV2.ttf" id="3_fs0jy"]
+
+[node name="TextBox" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 324.0
+offset_top = 222.0
+offset_right = -342.0
+offset_bottom = -287.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgtc6")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_yph52")
+region_rect = Rect2(4, 76, 96, 24)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_fs0jy")
+theme_override_font_sizes/font_size = 50
+vertical_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

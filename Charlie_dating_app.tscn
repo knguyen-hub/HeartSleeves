@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://hbkdo0pelptp"]
+
+[ext_resource type="Texture2D" uid="uid://bn8kypjuerv3y" path="res://dating_app_charlie.png" id="1_5fijv"]
+[ext_resource type="Script" path="res://barriers_charlie.gd" id="2_of3xl"]
+[ext_resource type="PackedScene" uid="uid://dxukphd7p3mnj" path="res://character.tscn" id="3_y1kb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx7wt"]
+size = Vector2(324, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ji1g"]
+size = Vector2(164.5, 411.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ve4s"]
+size = Vector2(207, 407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e44g2"]
+size = Vector2(210, 409)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psfar"]
+size = Vector2(160, 431)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he8b4"]
+size = Vector2(271, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6eb2"]
+size = Vector2(98, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eijb4"]
+size = Vector2(126, 348)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 256.0
+offset_top = -10.0
+offset_right = 954.0
+offset_bottom = 640.0
+texture = ExtResource("1_5fijv")
+stretch_mode = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(790, 572)
+shape = SubResource("RectangleShape2D_mx7wt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(370.75, 205.75)
+shape = SubResource("RectangleShape2D_7ji1g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(558.5, 198.5)
+shape = SubResource("RectangleShape2D_3ve4s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(768, 191.5)
+shape = SubResource("RectangleShape2D_e44g2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960, 192)
+shape = SubResource("RectangleShape2D_psfar")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(409.5, 566)
+shape = SubResource("RectangleShape2D_he8b4")
+
+[node name="barriers_charlie" type="Area2D" parent="."]
+script = ExtResource("2_of3xl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barriers_charlie"]
+position = Vector2(241, 471)
+shape = SubResource("RectangleShape2D_u6eb2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="barriers_charlie"]
+position = Vector2(978, 464)
+shape = SubResource("RectangleShape2D_eijb4")
+
+[node name="Character" parent="." groups=["CharacterGroup"] instance=ExtResource("3_y1kb6")]
+position = Vector2(591, 634)
+
+[connection signal="body_entered" from="barriers_charlie" to="barriers_charlie" method="_on_body_entered"]
